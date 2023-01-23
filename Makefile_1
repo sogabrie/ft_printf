@@ -1,0 +1,13 @@
+CC = gcc
+CFLAGS = -L. -lftprintf -o 
+
+all: a 
+
+a: main.o
+	$(CC) main.o $(CFLAGS) a
+
+main.o: main.c
+	$(CC) -c  main.c
+
+clean:
+	rm -rf main.o a

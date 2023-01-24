@@ -22,7 +22,7 @@ CFLAGS			= -Wall -Wextra -Werror
 
 NAME			= libft.a
 
-all:			$(NAME)
+all:			$(NAME) Makefile libft.h
 
 $(NAME):		$(OBJS)
 				ar rcs $(NAME) $(OBJS)
@@ -35,7 +35,7 @@ fclean:			clean
 
 re:				fclean $(NAME)
 
-bonus:			$(OBJS) $(BONUS_OBJS)
+bonus:			$(OBJS) $(BONUS_OBJS) Makefile libft.h
 				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 .PHONY:			all clean fclean re bonus

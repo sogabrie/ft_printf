@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_print_hexs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sogabrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/20 15:08:16 by sogabrie          #+#    #+#             */
-/*   Updated: 2023/01/22 20:39:27 by sogabrie         ###   ########.fr       */
+/*   Created: 2023/01/24 19:34:33 by sogabrie          #+#    #+#             */
+/*   Updated: 2023/01/24 22:49:26 by sogabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_print_hexs(unsigned long long hx)
 {
-	void	*pt;
+	int		count;
+	char	*ptr;
 
-	if (nmemb == SIZE_MAX || size == SIZE_MAX)
+	if (!hx)
+		return(ft_print_char('0'));
+	count = 0;
+	ptr = newhex((unsigned long long)hx);
+	if (!ptr)
 		return (0);
-	pt = malloc(nmemb * size);
-	if (!pt)
-		return (0);
-	ft_bzero(pt, nmemb * size);
-	return (pt);
+	count += ft_print_string(ptr);
+	if (count)
+		free(ptr);
+	return (count);
 }

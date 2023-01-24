@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_print_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sogabrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/20 15:08:16 by sogabrie          #+#    #+#             */
-/*   Updated: 2023/01/22 20:39:27 by sogabrie         ###   ########.fr       */
+/*   Created: 2023/01/24 16:59:58 by sogabrie          #+#    #+#             */
+/*   Updated: 2023/01/24 19:21:05 by sogabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_print_int(int i)
 {
-	void	*pt;
+	int		count;
+	char	*ptr;
 
-	if (nmemb == SIZE_MAX || size == SIZE_MAX)
+	count = 0;
+	ptr = ft_itoa(i);
+	if (!ptr)
 		return (0);
-	pt = malloc(nmemb * size);
-	if (!pt)
-		return (0);
-	ft_bzero(pt, nmemb * size);
-	return (pt);
+	count += ft_print_string(ptr);
+	free(ptr);
+	return (count);
 }

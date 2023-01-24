@@ -1,4 +1,6 @@
-SRCS			= ft_printf.c
+SRCS			= ft_printf.c ft_hex.c ft_print_char.c ft_print_hexs.c \
+				  	ft_print_int.c ft_print_point.c ft_print_string.c \
+					ft_print_unint.c ft_unitoa.c 
 OBJS			= $(SRCS:.c=.o)
 
 CC				= cc

@@ -6,7 +6,7 @@
 /*   By: sogabrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 21:31:39 by sogabrie          #+#    #+#             */
-/*   Updated: 2023/01/24 22:59:44 by sogabrie         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:28:58 by sogabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ char	*hexres(char *mas)
 	if (!ptr)
 		return (0);
 	ptr[i--] = 0;
+	if (!i)
+	{
+		ptr[i] = mas[i];
+		return (ptr);
+	}
 	while (i >= j)
 	{
 		ptr[j] = mas[i];
@@ -42,11 +47,9 @@ char	*newhex(unsigned long long hx)
 	while (hx)
 	{
 		mas[i++] = "0123456789abcdef"[hx % 16];
-		printf("hx tok = %llu\n hx = %llu \n",hx % 16, hx);
 		hx = hx / 16;
 	}
 	mas[i] = 0;
-	printf("========= |%s|\n",mas);
 	ptr = hexres(mas);
 	return (ptr);
 }

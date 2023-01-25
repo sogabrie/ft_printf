@@ -6,7 +6,7 @@
 /*   By: sogabrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:34:33 by sogabrie          #+#    #+#             */
-/*   Updated: 2023/01/24 22:49:26 by sogabrie         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:58:05 by sogabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_print_hexs(unsigned long long hx)
 	char	*ptr;
 
 	if (!hx)
-		return(ft_print_char('0'));
+		return (ft_print_char('0'));
 	count = 0;
 	ptr = newhex((unsigned long long)hx);
 	if (!ptr)
